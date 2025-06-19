@@ -5,27 +5,35 @@ export interface IProductsSchema {
   price: number;
   description: string;
   age_required: boolean;
+  discount: number;
 }
 
-const ProductsSchema = new Schema<IProductsSchema>({
-  name: {
-    type: String,
-    required: true,
+const ProductsSchema = new Schema<IProductsSchema>(
+  {
+    name: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    age_required: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+    discount: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
   },
-  price: {
-    type: Number,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
-  age_required: {
-    type: Boolean,
-    required: true,
-  },
-});
+  { timestamps: true }
+);
 
-const productsModel = model("products", ProductsSchema);
-
-export default productsModel;
+export default model("Product", ProductsSchema);
