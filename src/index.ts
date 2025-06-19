@@ -5,6 +5,7 @@ import connectDB from "./db/connect";
 
 import productRoutes from "./routes/product.routes";
 import userRoutes from "./routes/user.routes";
+import orderRoutes from "./routes/order.routes";
 
 const app = new Hono();
 
@@ -13,7 +14,8 @@ app.use("*", logger());
 
 // Mount routes
 app.route("/products", productRoutes);
-app.route("users", userRoutes);
+app.route("/users", userRoutes);
+app.route("/orders", orderRoutes);
 
 // Connect DB and start server
 (async () => {
