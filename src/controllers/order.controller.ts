@@ -16,7 +16,6 @@ export const createOrder = async (c: Context) => {
     const birthDate = new Date(user.DateOfBirth);
     const today = new Date();
     let userAge = today.getFullYear() - birthDate.getFullYear();
-    console.log(userAge);
     const monthDiff = today.getMonth() - birthDate.getMonth();
     if (
       monthDiff < 0 ||
@@ -40,7 +39,6 @@ export const createOrder = async (c: Context) => {
 
       // Check age restriction
       const ageReq = product.age_required;
-      console.log(ageReq);
       if (ageReq?.required && ageReq.age) {
         if (userAge < ageReq.age) {
           return c.json(
