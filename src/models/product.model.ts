@@ -4,7 +4,10 @@ export interface IProductsSchema {
   name: string;
   price: number;
   description: string;
-  age_required: boolean;
+  age_required: {
+    required: boolean;
+    age: number;
+  };
   discount: number;
 }
 
@@ -23,10 +26,18 @@ const ProductsSchema = new Schema<IProductsSchema>(
       required: true,
     },
     age_required: {
-      type: Boolean,
-      required: true,
-      default: false,
+      required: {
+        type: Boolean,
+        require: true,
+        default: false,
+      },
+      age: {
+        type: Number,
+        required: false,
+        default: 0,
+      },
     },
+
     discount: {
       type: Number,
       required: true,
