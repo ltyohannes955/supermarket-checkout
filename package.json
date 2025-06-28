@@ -1,5 +1,7 @@
 {
   "name": "supermarket-checkout",
+  "description": "Supermarket checkout system using Bun, Hono, and MongoDB",
+  "license": "MIT",
   "scripts": {
     "dev": "bun run --hot src/index.ts",
     "test": "bun test"
