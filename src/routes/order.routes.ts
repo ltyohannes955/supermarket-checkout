@@ -4,11 +4,12 @@ import {
   getAllOrders,
   getOrderById,
 } from "../controllers/order.controller";
+import { authMiddleware } from "../middleware/auth.middleware";
 
 const router = new Hono();
 
-router.get("/", getAllOrders);
-router.get("/:id", getOrderById);
-router.post("/", createOrder);
+router.get("/", authMiddleware, getAllOrders);
+router.get("/:id", authMiddleware, getOrderById);
+router.post("/", authMiddleware, createOrder);
 
 export default router;
