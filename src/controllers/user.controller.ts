@@ -11,16 +11,16 @@ export const getAllUsers = async (c: Context) => {
   }
 };
 
-export const createUser = async (c: Context) => {
-  const data = await c.req.json();
-  const user = new User(data);
-  try {
-    const saved = await user.save();
-    return c.json(saved, 201);
-  } catch (err: any) {
-    return c.json({ error: err.message }, 400);
-  }
-};
+// export const createUser = async (c: Context) => {
+//   const data = await c.req.json();
+//   const user = new User(data);
+//   try {
+//     const saved = await user.save();
+//     return c.json(saved, 201);
+//   } catch (err: any) {
+//     return c.json({ error: err.message }, 400);
+//   }
+// };
 
 export const getUserById = async (c: Context) => {
   const id = c.req.param("id");
