@@ -3,7 +3,6 @@
   "description": "Supermarket checkout system using Bun, Hono, and MongoDB",
   "license": "MIT",
   "scripts": {
-    "preinstall": "bun install",
     "dev": "bun run --hot src/index.ts",
     "test": "bun test"
   },
