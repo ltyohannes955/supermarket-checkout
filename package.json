@@ -7,12 +7,16 @@
     "test": "bun test"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "hono": "^4.7.11",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.16.0",
     "uuid": "^11.1.0"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^3.0.0",
     "@types/bun": "latest",
+    "@types/jsonwebtoken": "^9.0.10",
     "mongodb-memory-server": "^10.1.4"
   }
 }
