@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, Types, model } from "mongoose";
 
 export interface IProductsSchema {
   name: string;
@@ -9,6 +9,8 @@ export interface IProductsSchema {
     age: number;
   };
   discount: number;
+  category: Types.ObjectId;
+  image_url: string;
 }
 
 const ProductsSchema = new Schema<IProductsSchema>(
@@ -42,6 +44,15 @@ const ProductsSchema = new Schema<IProductsSchema>(
       type: Number,
       required: true,
       default: 0,
+    },
+    image_url: {
+      type: String,
+      require: true,
+    },
+    category: {
+      type: Schema.Types.ObjectId,
+      ref: "Category",
+      required: true,
     },
   },
   { timestamps: true }

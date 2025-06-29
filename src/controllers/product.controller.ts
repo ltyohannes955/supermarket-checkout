@@ -12,13 +12,21 @@ export const getAllProducts = async (c: Context) => {
 };
 
 export const createProduct = async (c: Context) => {
-  const data = await c.req.json();
-  const product = new Product(data);
   try {
-    const saved = await product.save();
-    return c.json(saved, 201);
+    const data = await c.req.json();
+
+    if (Array.isArray(data)) {
+      // Multiple products (bulk insert)
+      const savedProducts = await Product.insertMany(data);
+      return c.json({ success: true, data: savedProducts }, 201);
+    } else {
+      // Single product
+      const product = new Product(data);
+      const savedProduct = await product.save();
+      return c.json({ success: true, data: savedProduct }, 201);
+    }
   } catch (err: any) {
-    return c.json({ error: err.message }, 400);
+    return c.json({ success: false, error: err.message }, 400);
   }
 };
 
