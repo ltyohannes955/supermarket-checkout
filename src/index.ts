@@ -18,7 +18,7 @@ app.use(
     origin: (origin) => {
       const allowed = [
         "http://localhost:3000",
-        "https://supermarket-ui-seven.vercel.app/",
+        "https://supermarket-ui-seven.vercel.app",
       ];
       return allowed.includes(origin ?? "") ? origin : "";
     },
