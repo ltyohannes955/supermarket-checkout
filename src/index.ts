@@ -8,6 +8,7 @@ import productRoutes from "./routes/product.routes";
 import userRoutes from "./routes/user.routes";
 import authRoutes from "./routes/auth.routes";
 import orderRoutes from "./routes/order.routes";
+import categoryRoutes from "./routes/category.routes";
 
 const app = new Hono();
 
@@ -32,6 +33,7 @@ app.route("/products", productRoutes);
 app.route("/users", userRoutes);
 app.route("/auth", authRoutes);
 app.route("/orders", orderRoutes);
+app.route("/categories", categoryRoutes);
 
 // Connect DB and start server
 (async () => {
